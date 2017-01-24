@@ -1,11 +1,11 @@
 section.new-tweet {
   margin: 0 2em;
-  border: 1px solid black;
+  border: 1px solid #888888;
   border-radius: 5px;
 }
 
 section.new-tweet h2 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #888888;
   margin: 10px;
 }
 
