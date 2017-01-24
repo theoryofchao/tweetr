@@ -1,10 +1,15 @@
-section#tweet-feed {
+section#tweets-container {
   margin: 2em 0;
   height: 500px;
 }
 
 article.tweet:hover{
   opacity: 1;
+}
+
+article.tweet:hover .tweet-icons {
+  color: #888888;
+  visibility: visible;
 }
 
 article.tweet {
@@ -43,8 +48,24 @@ article .tweet-body {
 article footer {
   padding: 10px;
   border-top: 1px solid #888888;
+  overflow: auto;
 }
 
 article .tweet-date {
+        float: left;
   margin: 5px;
+}
+
+article .tweet-icons {
+  margin: 5px;
+  float: right;
+  visibility: hidden;
+}
+
+article .tweet-icons > * {
+  margin-right: 6px;
+}
+
+article .tweet-icons .fa-flag:hover, article .tweet-icons .fa-retweet:hover, article .tweet-icons .fa-heart:hover {
+  color: red;
 }

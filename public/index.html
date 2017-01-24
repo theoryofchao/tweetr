@@ -22,11 +22,14 @@
     <!-- Tweet CSS -->
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
+    <!-- Include Glyphicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script> 
 
     <!-- Character Counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -51,7 +54,7 @@
           </form>
       </section>
 
-      <section id="tweet-feed">
+      <section id="tweets-container">
         <article class="tweet">
           <header> 
             <div class="tweet-pic"><img src="https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png"></div>
@@ -63,6 +66,11 @@
           </div>
           <footer>
             <div class="tweet-date">10 days ago</div>
+            <div class="tweet-icons">
+              <i class="fa fa-flag"></i>
+              <i class="fa fa-retweet"></i>
+              <i class="fa fa-heart"></i>
+            </div>
           </footer>
         </article>
       </section>
