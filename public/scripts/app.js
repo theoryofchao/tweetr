@@ -42,7 +42,7 @@ let loadTweets = () => {
       renderTweets(data);
     },
     () => {
-      console.log("SOmething went wrong");
+      tweetNotification("Could not load tweets");
     }
   );
 };
@@ -74,10 +74,8 @@ $( () => {
       (data) => {
         $('main .new-tweet .new-tweet-input').val('');
         $('main .counter').text(140);
-        //TODO: update to this after I sort the items by date
-        //$('#tweets-container').empty();
-        //loadTweets(); 
-        $('#tweets-container').prepend(createTweetElement(data));
+        $('#tweets-container').empty();
+        loadTweets(); 
         tweetNotification("Tweeted!!");
       },
       () => {
@@ -88,7 +86,6 @@ $( () => {
   });
 
   $('.compose').on('click', (event) => {
-    console.log('clicked');
     $('main .new-tweet').slideToggle("fast", () => {
       $('main .new-tweet .new-tweet-input').focus();
     });
