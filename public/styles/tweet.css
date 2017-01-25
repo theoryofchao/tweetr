@@ -1,6 +1,5 @@
 section#tweets-container {
   margin: 2em 0;
-  height: 500px;
 }
 
 article.tweet:hover{

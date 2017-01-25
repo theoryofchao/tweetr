@@ -6,49 +6,85 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 $( () => {
-var tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": {
-      "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-      "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-      "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-    },
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-};
+  var data = [];
 
-
-let createTweetElement = (tweetData) => {
-  let $article = $("<article>", {"class": "tweet"});
-  let $header = $("<header>");
-  let $tweetpic = $("<div>", {"class": "tweet-pic"});
-  let $img = $("<img>");
-  let $username = $("<div>", {"class": "tweet-username"}).text(tweetData.user.name);
-  let $userhandle = $("<div>", {"class": "tweet-userhandle"}).text(tweetData.user.handle);
-  let $content = $("<div>", {"class": "tweet-body"}).text(tweetData.content.text);
-  let $footer = $("<footer>");
-  let date = new Date(tweetData.created_at);
-  let $date = $("<div>", {"class": "tweet-date"}).text(date.toDateString());
-  let $symbols = $("<div>", {"class": "tweet-icons"})
+  let createTweetElement = (tweetData) => {
+    let $article = $("<article>", {"class": "tweet"});
+    let $header = $("<header>");
+    let $tweetpic = $("<div>", {"class": "tweet-pic"});
+    let $img = $("<img>");
+    let $username = $("<div>", {"class": "tweet-username"}).text(tweetData.user.name);
+    let $userhandle = $("<div>", {"class": "tweet-userhandle"}).text(tweetData.user.handle);
+    let $content = $("<div>", {"class": "tweet-body"}).text(tweetData.content.text);
+    let $footer = $("<footer>");
+    let date = new Date(tweetData.created_at);
+    let $date = $("<div>", {"class": "tweet-date"}).text(date.toDateString());
+    let $symbols = $("<div>", {"class": "tweet-icons"})
           .append($("<i>", {"class": "fa fa-flag"}))
           .append($("<i>", {"class": "fa fa-retweet"}))
           .append($("<i>", {"class": "fa fa-heart"}));
+    $img.attr("src", tweetData.user.avatars.small);
+    $tweetpic.append($img);
+    $header.append($tweetpic).append($username).append($userhandle);
+    $footer.append($date).append($symbols);
+    $article.append($header).append($content).append($footer);
+    return $article;
+  };
 
-  $img.attr("src", tweetData.user.avatars.small);
-  $tweetpic.append($img);
-  $header.append($tweetpic).append($username).append($userhandle);
-  $footer.append($date).append($symbols);
-  $article.append($header).append($content).append($footer);
-  return $article;
-};
+  let renderTweets = (arrayTweets) => {
+    arrayTweets.forEach( (tweet) => {
+      $('#tweets-container').append(createTweetElement(tweet));
+    });
+  };
 
-var $tweet = createTweetElement(tweetData);
+  let loadTweets = () => {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets/',
+      error: () => {
+        console.log("Something went wrong");
+      },
+      success: (data) => {
+        renderTweets(data);
+      }
+    });
+  };
 
-$('#tweets-container').append($tweet);
+  loadTweets();
 
+  //Ajax For Getting More Tweets
+  $('main .new-tweet .submit-new-tweet').on('click', (event) => {
+    //console.log('Performing Ajax Call');
+    event.preventDefault();
+    let text = $('main .new-tweet .new-tweet-input').val();
+    if(text.length === 0) {
+      //TODO: implement flash message
+      alert("Tweet cannot be empty!");
+      return false;
+    }
+    else if(text.length > 140) {
+      //TODO: implement flash message
+      alert("Tweet cannot exceed 140 characters!");
+      return false;
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: '/tweets/',
+      data: {'text': text},
+      success: (data) => {
+        $('main .new-tweet .new-tweet-input').val('');
+        $('main .counter').text(140);
+        $('#tweets-container').prepend(createTweetElement(data));
+        console.log(data);
+      }
+    });
+  });
+
+  $('.compose').on('click', (event) => {
+    console.log('clicked');
+    $('main .new-tweet').slideToggle("fast", () => {
+      $('main .new-tweet .new-tweet-input').focus();
+    });
+  });
 });
