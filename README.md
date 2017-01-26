@@ -24,9 +24,9 @@ The end result should look and function like this:
 4. Open the app on <http://localhost:8080/> and make sure that it's loading.
 
 ## Developer Options
-Run `npm run build-css` to make all public/styles/scss SASS files preprocess to public/styles/ in css.
-Run `npm run watch-css` to watch for changes to public/styles/scss. Any changes automatically create css in public/styles.
-Run `npm run dev` to use the concurrency node package to run both `npm run local` and `npm run watch-css`. `kill-others` is enabled so if one goes down, both goes down.
+- Run `npm run build-css` to make all public/styles/scss SASS files preprocess to public/styles/ in css.
+- Run `npm run watch-css` to watch for changes to public/styles/scss. Any changes automatically create css in public/styles.
+- Run `npm run dev` to use the concurrency node package to run both `npm run local` and `npm run watch-css`. `kill-others` is enabled so if one goes down, both goes down.
 
 ## Dependencies & Troubleshooting
 
