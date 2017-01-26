@@ -39,6 +39,7 @@ let renderTweets = (arrayTweets) => {
 let loadTweets = () => {
   $.get("/tweets/").then(
     (data) => {
+      $('#tweets-container').empty();
       renderTweets(data);
     },
     () => {
@@ -74,7 +75,6 @@ $( () => {
       (data) => {
         $('main .new-tweet .new-tweet-input').val('');
         $('main .counter').text(140);
-        $('#tweets-container').empty();
         loadTweets(); 
         tweetNotification("Tweeted!!");
       },

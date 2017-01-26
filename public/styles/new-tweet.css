@@ -4,32 +4,21 @@
   margin: 0 2em;
   height: 60px;
   line-height: 60px;
-  opacity: 0;
-}
+  opacity: 0; }
 
-section.new-tweet {
+.new-tweet {
   margin: 0 2em;
   border: 1px solid #888888;
-  border-radius: 5px;
-}
-
-section.new-tweet h2 {
-  border-bottom: 1px solid #888888;
-  margin: 10px;
-}
-
-section.new-tweet textarea {
-  display: block;
-  width: 364px;
-  margin: 10px 10px;
-  padding: 2px;
-}
-
-section.new-tweet [type=submit] {
-  margin: 0 10px 10px 10px; 
-}
-
-section.new-tweet .counter {
-  float: right;
-  margin: 5px 10px 10px 10px;
-}
+  border-radius: 5px; }
+  .new-tweet h2 {
+    border-bottom: 1px solid #888888;
+    margin: 10px; }
+  .new-tweet textarea {
+    width: 364px;
+    margin: 10px;
+    padding: 2px; }
+  .new-tweet .submit-new-tweet {
+    margin: 0 10px 10px 10px; }
+  .new-tweet .counter {
+    float: right;
+    margin: 5px 10px 10px 10px; }

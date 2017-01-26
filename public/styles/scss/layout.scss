@@ -1,0 +1,22 @@
+@import 'tweeter';
+
+html {
+        box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    color: $body-color;
+    background-color: $body-background;
+    font-family: $fonts;
+    padding-top: 80px;
+
+    main {
+      margin: 0 auto;
+      width: 450px;
+      background: white;     
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import 'tweeter';
+
+section#tweets-container {
+  margin: 2em 0;
+
+  article {
+    opacity: 0.5;
+    margin: 1em 2em;
+    border: 1px solid $tweet-border;
+    border-radius: $border-roundness;
+    overflow: auto;
+
+    &:hover {
+      opacity: 1;
+
+      .tweet-icons {
+        visibility: visible;
+      }
+    }
+
+    header {
+      padding: 10px;
+      background: $body-background;
+      height: 70px;
+      .tweet-pic {
+        float: left;
+      }
+      .tweet-username {
+        float: left;
+        font-size: 1.7em;
+        font-weight: 700;
+        margin-left: 10px;
+      }
+      .tweet-userhandle {
+        float: right;
+      }
+    }
+
+    .tweet-body {
+      padding: 20px;
+    }
+    
+    footer {
+      padding: 10px;
+      border-top: 1px solid $body-background;
+      height: 55px;
+      overflow: auto;
+
+      .tweet-date {
+        float: left;
+        margin: 5px;
+      }
+      
+      .tweet-icons {
+        float: right;
+        color: $tweet-border;
+        margin: 5px;
+        visibility: hidden;
+        > * {
+          margin-right: 6px;
+          &:hover {
+            font-size: 20px;
+          }
+          &:active {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
