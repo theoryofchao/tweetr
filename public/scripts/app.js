@@ -48,9 +48,9 @@ let loadTweets = () => {
   );
 };
 
-let tweetNotification = (message) => {
-  $("#tweet-notification").text(message).fadeTo(2000, 1, () => {
-    $("#tweet-notification").fadeTo(2000, 0);       
+let tweetNotification = (message, color) => {
+  $("#tweet-notification").text(message).css('color', color).fadeTo(1000, 1, () => {
+    $("#tweet-notification").fadeTo(1000, 0);       
   });
 };
 
@@ -60,14 +60,13 @@ $( () => {
   //Ajax For Getting More Tweets
   $('main .new-tweet').on('submit', (event) => {
     //console.log('Performing Ajax Call');
-    event.preventDefault();
     let text = $('main .new-tweet .new-tweet-input').val();
     if(text.length === 0) {
-      tweetNotification("Tweet cannot be empty!");
+      tweetNotification("Tweet cannot be empty!", 'red');
       return false;
     }
     else if(text.length > 140) {
-      tweetNotification("Tweet cannot exceed 140 characters!");
+      tweetNotification("Tweet cannot exceed 140 characters!", 'red');
       return false;
     }
 
@@ -76,11 +75,11 @@ $( () => {
         $('main .new-tweet .new-tweet-input').val('');
         $('main .counter').text(140);
         loadTweets(); 
-        tweetNotification("Tweeted!!");
+        tweetNotification("Tweeted!!", 'white');
       },
       () => {
         //Flash box with error
-        tweetNotification("Something went wrong :(");
+        tweetNotification("Something went wrong :(", 'red');
       }
     );
   });
@@ -89,5 +88,25 @@ $( () => {
     $('main .new-tweet').slideToggle("fast", () => {
       $('main .new-tweet .new-tweet-input').focus();
     });
+  });
+
+  //Bind to Modals
+  $('.register').on('click', (event) => {
+    $('#registerModal').toggle();
+  });
+
+  $('.login').on('click', (event) => {
+    $('#loginModal').toggle();
+  });
+
+  //User Registration and Login
+  $('#registerModal form').on('submit', (event) => {
+    event.preventDefault();
+    console.log($('#registeredModal form .username').val());
+  });
+
+  $('#loginModal form').on('submit', (event) => {
+    event.preventDefault();
+    //post request
   });
 });

@@ -8,7 +8,13 @@ html {
     background-color: #eee;
     font-family: "Roboto Condensed", sans-serif;
     padding-top: 80px; }
+    @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+      html body {
+        padding-top: 250px; } }
     html body main {
       margin: 0 auto;
       width: 450px;
       background: white; }
+      @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        html body main {
+          width: 100%; } }

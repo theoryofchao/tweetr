@@ -14,17 +14,34 @@ section#tweets-container {
       padding: 10px;
       background: #eee;
       height: 70px; }
+      @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        section#tweets-container article header {
+          height: 70px; } }
       section#tweets-container article header .tweet-pic {
         float: left; }
+        @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+          section#tweets-container article header .tweet-pic {
+            display: none; } }
       section#tweets-container article header .tweet-username {
         float: left;
         font-size: 1.7em;
         font-weight: 700;
         margin-left: 10px; }
+        @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+          section#tweets-container article header .tweet-username {
+            font-size: 3em; } }
       section#tweets-container article header .tweet-userhandle {
         float: right; }
+        @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+          section#tweets-container article header .tweet-userhandle {
+            font-size: 2.5em; } }
     section#tweets-container article .tweet-body {
       padding: 20px; }
+      @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        section#tweets-container article .tweet-body {
+          font-size: 3em;
+          overflow: scroll;
+          width: 100%; } }
     section#tweets-container article footer {
       padding: 10px;
       border-top: 1px solid #eee;
@@ -33,14 +50,24 @@ section#tweets-container {
       section#tweets-container article footer .tweet-date {
         float: left;
         margin: 5px; }
+        @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+          section#tweets-container article footer .tweet-date {
+            font-size: 2em; } }
       section#tweets-container article footer .tweet-icons {
         float: right;
         color: #888888;
         margin: 5px;
         visibility: hidden; }
+        @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+          section#tweets-container article footer .tweet-icons {
+            font-size: 2em;
+            color: black; } }
         section#tweets-container article footer .tweet-icons > * {
           margin-right: 6px; }
           section#tweets-container article footer .tweet-icons > *:hover {
             font-size: 20px; }
+            @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+              section#tweets-container article footer .tweet-icons > *:hover {
+                font-size: 30px; } }
           section#tweets-container article footer .tweet-icons > *:active {
             color: red; }
