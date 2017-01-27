@@ -12,11 +12,21 @@ html {
     background-color: $body-background;
     font-family: $fonts;
     padding-top: 80px;
+    @media only screen 
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      padding-top: 250px;
+    }
 
     main {
       margin: 0 auto;
       width: 450px;
-      background: white;     
+      background: white;
+      @media only screen 
+      and (max-device-width: 568px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        width: 100%;
+      }  
     }
   }
 }

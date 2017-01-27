@@ -22,22 +22,49 @@ section#tweets-container {
       padding: 10px;
       background: $body-background;
       height: 70px;
+      @media only screen 
+      and (max-device-width: 568px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        height: 70px;
+      }
       .tweet-pic {
         float: left;
+        @media only screen 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+          display: none;
+        }
       }
       .tweet-username {
         float: left;
         font-size: 1.7em;
         font-weight: 700;
         margin-left: 10px;
+        @media only screen 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 3em;      
+        }
       }
       .tweet-userhandle {
         float: right;
+        @media only screen 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 2.5em;
+        }
       }
     }
 
     .tweet-body {
       padding: 20px;
+      @media only screen 
+      and (max-device-width: 568px)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        font-size: 3em;
+        overflow: scroll;
+        width: 100%;
+      }
     }
     
     footer {
@@ -49,17 +76,34 @@ section#tweets-container {
       .tweet-date {
         float: left;
         margin: 5px;
+        @media only screen 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 2em;
+        }
       }
       
       .tweet-icons {
         float: right;
         color: $tweet-border;
         margin: 5px;
+        @media only screen 
+        and (max-device-width: 568px)
+        and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 2em;
+          color: black;
+        }
+
         visibility: hidden;
         > * {
           margin-right: 6px;
           &:hover {
             font-size: 20px;
+            @media only screen 
+            and (max-device-width: 568px)
+            and (-webkit-min-device-pixel-ratio: 2) {
+              font-size: 30px;
+            }
           }
           &:active {
             color: red;

@@ -1,0 +1,45 @@
+@import 'tweeter';
+
+.modal {
+  display: none;
+
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 60%;
+  width: 30%;
+  height: 30%;
+  margin-top: -15%;
+  margin-left: -15%;
+  overflow: auto;
+  background-color: white;
+
+  @media only screen 
+  and (max-device-width: 568px) {
+    position: fixed;
+    z-index: 1;
+    left: 50%; 
+    top: 28.5%;
+    width: 100%;
+    height: 100%;
+    margin-top: -50%;
+    margin-left: -50%;
+  }
+
+  .modal-content {
+    background-color: $nav-color;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: $border-roundness;
+    height: 100%;
+    width: 100%;
+
+    input[name='username'], input[name='password'] {
+      font-size: 1.2em;
+      height: 65px;
+    }
+    input[type='submit'] {
+      float: right;
+    }
+  }
+}
